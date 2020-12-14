@@ -1,5 +1,15 @@
 package com.fiap.sts.stsfiap.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.fiap.sts.stsfiap.JwtTokenUtil;
 import com.fiap.sts.stsfiap.models.Usuario;
 import com.fiap.sts.stsfiap.repositories.UsuariosRepository;
@@ -7,21 +17,7 @@ import com.fiap.sts.stsfiap.viewModels.JwtRequest;
 import com.fiap.sts.stsfiap.viewModels.JwtResponse;
 import com.fiap.sts.stsfiap.viewModels.JwtValidateResponse;
 
-import org.apache.tomcat.util.http.parser.Authorization;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.SignatureException;
-
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 @RequestMapping("/autenticacao")
@@ -63,10 +59,10 @@ public class AutenticacaoController {
 	public ResponseEntity<JwtValidateResponse> getMethodName(@RequestParam String token) {
 		if (token != null && !token.isEmpty()) {
 			try {
-				var cpfUser = jwtTokenUtil.getUsernameFromToken(token);
-
+				String cpfUser = jwtTokenUtil.getUsernameFromToken(token);
+				
 				if (cpfUser != null && !cpfUser.isEmpty()) {
-					var user = _usuariosRepository.findFirstByCpf(cpfUser);
+					Usuario user = _usuariosRepository.findFirstByCpf(cpfUser);
 					if (jwtTokenUtil.validateToken(token, user))
 						return ResponseEntity.ok().body(new JwtValidateResponse(user.getCpf(), user.getTipo()));
 				}
