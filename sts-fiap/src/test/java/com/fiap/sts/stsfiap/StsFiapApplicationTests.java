@@ -25,7 +25,7 @@ class StsFiapApplicationTests {
 
 	@Test
 	void DeveGerarTokenValido() {
-		var token = _jwt.generateToken(new Usuario("USUARIO", "SENHA"));
+		String token = _jwt.generateToken(new Usuario("USUARIO", "SENHA"));
 		assertEquals("USUARIO", _jwt.getUsernameFromToken(token));
 	}
 
