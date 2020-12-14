@@ -1,0 +1,20 @@
+com/fiap/sts/stsfiap/viewModels/JwtRequest.java
+ com.fiap.sts.stsfiap.viewModels.JwtRequest
+com/fiap/sts/stsfiap/viewModels/UserPassRequest.java
+ com.fiap.sts.stsfiap.viewModels.UserPassRequest
+com/fiap/sts/stsfiap/viewModels/JwtValidateResponse.java
+ com.fiap.sts.stsfiap.viewModels.JwtValidateResponse
+com/fiap/sts/stsfiap/viewModels/JwtResponse.java
+ com.fiap.sts.stsfiap.viewModels.JwtResponse
+com/fiap/sts/stsfiap/JwtTokenUtil.java
+ com.fiap.sts.stsfiap.JwtTokenUtil
+com/fiap/sts/stsfiap/ApplicationRunnerBean.java
+ com.fiap.sts.stsfiap.ApplicationRunnerBean
+com/fiap/sts/stsfiap/repositories/UsuariosRepository.java
+ com.fiap.sts.stsfiap.repositories.UsuariosRepository
+com/fiap/sts/stsfiap/controllers/AutenticacaoController.java
+ com.fiap.sts.stsfiap.controllers.AutenticacaoController
+com/fiap/sts/stsfiap/models/Usuario.java
+ com.fiap.sts.stsfiap.models.Usuario
+com/fiap/sts/stsfiap/StsFiapApplication.java
+ com.fiap.sts.stsfiap.StsFiapApplication
